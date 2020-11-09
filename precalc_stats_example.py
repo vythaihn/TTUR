@@ -11,8 +11,8 @@ import tensorflow as tf
 ########
 # PATHS
 ########
-data_path = 'data' # set path to training set images
-output_path = 'fid_stats.npz' # path for where to store the statistics
+data_path = 'FID_real' # set path to training set images
+output_path = 'fid_real.npz' # path for where to store the statistics
 # if you have downloaded and extracted
 #   http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz
 # set this path to the directory where the extracted files are, otherwise
@@ -24,7 +24,7 @@ print("ok")
 
 # loads all images into memory (this might require a lot of RAM!)
 print("load images..", end=" " , flush=True)
-image_list = glob.glob(os.path.join(data_path, '*.jpg'))
+image_list = glob.glob(os.path.join(data_path, '*.png'))
 images = np.array([imread(str(fn)).astype(np.float32) for fn in image_list])
 print("%d images found and loaded" % len(images))
 
